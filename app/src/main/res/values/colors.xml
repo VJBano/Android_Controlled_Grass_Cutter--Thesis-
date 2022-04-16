@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00897B</color>
+    <color name="colorPrimaryDark">#8C8E8D</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="default_ic_color">#939795</color>
+    <color name="input_Active">#FF141FEC</color>
+    <color name="white">#FBFBFB</color>
+    <color name="input_stroke">#FF02F42B</color>
+    <color name="button_pressed">#FF0B42F1</color>
+</resources>
