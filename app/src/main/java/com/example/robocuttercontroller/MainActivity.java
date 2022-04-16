@@ -44,7 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-
+//VJVANZ CODING
 public class MainActivity extends AppCompatActivity {
     public EditText ip_add, email, password;
     public Button login;
