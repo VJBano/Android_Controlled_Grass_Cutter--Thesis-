@@ -44,7 +44,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-//VJVANZ CODING
+//VJVANZ CODING THESIS
 public class MainActivity extends AppCompatActivity {
     public EditText ip_add, email, password;
     public Button login;
@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private DatabaseReference rDatabase;
     private DatabaseReference idDatabase;
+    private DatabaseReference stop;
 
     networkChangeListener netListener = new networkChangeListener();
 
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
         mDatabase = FirebaseDatabase.getInstance().getReference("User/UserStatus");
+        stop = FirebaseDatabase.getInstance().getReference("ControlTrack/Exit");
         rDatabase = FirebaseDatabase.getInstance().getReference("User/ActiveUser");
         idDatabase = FirebaseDatabase.getInstance().getReference("User/ID");
 
@@ -179,11 +181,14 @@ public class MainActivity extends AppCompatActivity {
                                                 operatorData.put("Username",getEmail);
                                                 operatorData.put("Date",getDate);
                                                 operatorData.put("TimeIn",getTime);
+                                                operatorData.put("TimeOut","--:--");
+                                                operatorData.put("SquareFeet","00.00");
 
                                                 FirebaseFirestore.getInstance().collection("Operator")
                                                         .document(randomStringId)
                                                         .set(operatorData);
                                                 mDatabase.setValue("Online");
+                                                stop.setValue("on");
                                                 rDatabase.setValue(fbUsername);
                                                 idDatabase.setValue(fbId);
 
